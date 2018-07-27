@@ -11,3 +11,4 @@ The sorting algorithms which I have included are:
  8) Counting Sort
  9) Radix Sort
 10) Tree Sort
+11) Cocktail Sort 
