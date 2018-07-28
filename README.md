@@ -12,3 +12,4 @@ The sorting algorithms which I have included are:
  9) Radix Sort
 10) Tree Sort
 11) Cocktail Sort 
+12) Cartesian Sort
