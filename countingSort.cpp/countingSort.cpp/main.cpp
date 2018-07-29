@@ -21,35 +21,37 @@ void countingSort(int input[], int size)
     }
     
     int range = largest + 1;
-    int * frequency = new int[largest];
-    // initialize the frequency array with all the frequencies as 0
-    for (int i = 0; i < range; i++)
-    {
-        frequency[i] = 0;
-    }
     
-    // To store the frequency of the elements of the input array
+    int * count= new int[range];
+    for(int i = 0; i < range; i++)
+        count[i] = 0;
+    // Store the count of each input element at the corresponding index
     for (int i = 0; i < size; i++)
     {
-        frequency[input[i]]++;
+        count[input[i]]++;
     }
-    
-    // In the original array, we replace the elements by the index in the frequency array
-    int k = 0; // original array counter
-    for (int i = 0; i < range; i++)
+    // modify the count array
+    for (int i = 1; i < range; i++)
     {
-        while (frequency[i] > 0) // for all non zero frequency elements we replace in the original/ input array
-        {
-            frequency[i]--;
-            input[k] = i;
-            k++;
-        }
+        count[i] += count[i - 1];
+    }
+    // make the output array
+    int * output = new int[size];
+    // fill the output array in the sorted order using the count array
+    for (int i = 0; i < size; i++)
+    {
+        output[count[input[i]] - 1] = input[i];
+        --count[input[i]];
+    }
+    for(int i = 0; i < size; i++)
+    {
+        input[i] = output[i];
     }
 }
 
 int main()
 {
-    int input[] = {3, 4, 1, 2, 6};
+    int input[] = {3, 4, 1, 2, 6, 5};
     int size = sizeof(input)/ sizeof(int);
     countingSort(input, size);
     
