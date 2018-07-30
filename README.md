@@ -13,3 +13,4 @@ The sorting algorithms which I have included are:
 10) Tree Sort
 11) Cocktail Sort 
 12) Cartesian Sort
+13) Gravity or Bead Sort
